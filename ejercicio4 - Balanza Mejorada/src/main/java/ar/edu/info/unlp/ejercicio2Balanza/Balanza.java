@@ -42,11 +42,13 @@ public class Balanza extends Object{
 	}
 	
 	public Ticket emitirTicket() {
-		return new Ticket(this.getCantidadDeProductos(),this.getPesoTotal(),this.getPrecioTotal());
+		Ticket ticket = new Ticket(this.getCantidadDeProductos(),this.getPesoTotal(),this.getPrecioTotal());
+		ponerEnCero(); // yo una vez que genero el ticket pongo en cero la balanza para que sea usada nuevamente
+		return ticket;
 	}
 	
 	public List<Producto> getProductos(){
-		return this.cantidadDeProductos;
+		return new ArrayList<Producto>(this.cantidadDeProductos);
 	}
 	
 }

@@ -1,4 +1,5 @@
 package ar.edu.info.unlp.ejercicio2Balanza;
+
 import java.time.LocalDate;
 
 public class Ticket extends Object{
@@ -16,6 +17,7 @@ public class Ticket extends Object{
 	}
 	
 	//GETTERS Y SETTERS
+	
 	public LocalDate getFecha() {
 		return fecha;
 	}
@@ -33,13 +35,8 @@ public class Ticket extends Object{
 	}
 
 	// METODOS
-	public void agregarProducto(double pesoT, double precioT) {
-		this.pesoTotal+= pesoT;
-		this.precioTotal+= precioT;
-		this.cantidadDeProductos++;
-	}
 	
 	public double impuesto() {
-		return 21*this.precioTotal/100;
+		return this.precioTotal * 0.21;
 	}
 }

@@ -45,9 +45,9 @@ public class BalanzaTest {
 
   @Test
   void testCantidadDeProductos() {
-    assertEquals(0, balanza.getCantidadDeProductos());
+	assertEquals(0, balanza.getCantidadDeProductos());
     balanza.agregarProducto(queso);
-    assertEquals(1, balanza.getCantidadDeProductos());
+	assertEquals(1, balanza.getCantidadDeProductos());
     balanza.agregarProducto(jamon);
     assertEquals(2, balanza.getCantidadDeProductos());
   }  

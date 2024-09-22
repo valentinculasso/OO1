@@ -1,64 +1,52 @@
 package ar.edu.info.unlp.ejercicio2Balanza;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Balanza extends Object{
 	
-	private int cantidadDeProductos;
-	private double precioTotal;
-	private double pesoTotal;
-	private Ticket ticket;
+	private List<Producto> cantidadDeProductos;
 	
 	
 	public Balanza() {
-		this.cantidadDeProductos = 0;
-		this.precioTotal = 0;
-		this.pesoTotal = 0;
-		this.ticket = new Ticket();
+		this.cantidadDeProductos = new ArrayList<Producto>();
 	}
-	
-	//GETTERS Y SETTERS
-	public int getCantidadDeProductos() {
-		return cantidadDeProductos;
-	}
-
-	public void setCantidadDeProductos(int cantidadDeProductos) {
-		this.cantidadDeProductos = cantidadDeProductos;
-	}
-
-	public double getPrecioTotal() {
-		return precioTotal;
-	}
-
-	public void setPrecioTotal(double precioTotal) {
-		this.precioTotal = precioTotal;
-	}
-
-	public double getPesoTotal() {
-		return pesoTotal;
-	}
-
-	public void setPesoTotal(double pesoTotal) {
-		this.pesoTotal = pesoTotal;
-	}
-
-	//FIN GETTERS Y SETTERS
 	
 	// METODOS
+	
+	// Lista vacia
 	public void ponerEnCero() {
-		this.pesoTotal= 0;
-		this.precioTotal= 0;
-		this.cantidadDeProductos= 0;
+		this.cantidadDeProductos = new ArrayList<>();
 	}
 	
+	// Agrega un producto a la lista
 	public void agregarProducto(Producto producto) {
-		this.pesoTotal += producto.getPeso();
-		this.precioTotal += producto.getPrecio();
-		this.cantidadDeProductos++;
-		ticket.agregarProducto(producto.getPeso(), producto.getPrecio());
+		this.cantidadDeProductos.add(producto);
+	}
+	
+	// Recorre la lista tomando el metodo getPrecio y sumandolo
+	public double getPrecioTotal() {
+		return cantidadDeProductos.stream()
+				.mapToDouble(producto -> producto.getPrecio())
+				.sum();
+	}
+	// Recorre la lista tomando el peso de cada producto y lo va sumando
+	public double getPesoTotal() {
+		return cantidadDeProductos.stream()
+				.mapToDouble(producto -> producto.getPeso())
+				.sum();
+	}
+	// Retorna la cantidad de productos de la lista
+	public int getCantidadDeProductos() {
+		return (int) cantidadDeProductos.stream().count();
 	}
 	
 	public Ticket emitirTicket() {
-		return ticket;
+		return new Ticket(this.getCantidadDeProductos(),this.getPesoTotal(),this.getPrecioTotal());
 	}
 	
+	public List<Producto> getProductos(){
+		return this.cantidadDeProductos;
+	}
 	
 }

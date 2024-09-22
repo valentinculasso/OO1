@@ -8,11 +8,11 @@ public class Ticket extends Object{
 	private double pesoTotal;
 	private double precioTotal;
 	
-	public Ticket() {
+	public Ticket(int productos, double peso, double precio) {
 		this.fecha= LocalDate.now();
-		this.cantidadDeProductos= 0;
-		this.pesoTotal= 0;
-		this.precioTotal= 0;
+		this.cantidadDeProductos= productos;
+		this.pesoTotal= peso;
+		this.precioTotal= precio;
 	}
 	
 	//GETTERS Y SETTERS

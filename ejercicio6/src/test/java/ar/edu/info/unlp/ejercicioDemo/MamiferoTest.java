@@ -1,4 +1,4 @@
-package ar.edu.unlp.info.oo1.ejercicio6;
+package ar.edu.info.unlp.ejercicioDemo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

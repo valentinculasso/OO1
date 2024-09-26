@@ -59,34 +59,34 @@ public class Mamifero {
 	}
 	
 	public Mamifero getAbueloMaterno() {
-		if(this.madre.getPadre() != null) {
+		if (this.madre != null) {
 			return this.madre.getPadre();
 		}
 		return null;
 	}
 	
 	public Mamifero getAbuelaMaterna() {
-		if(this.madre.getMadre() != null) {
+		if (this.madre != null) {
 			return this.madre.getMadre();
 		}
 		return null;
 	}
 	
 	public Mamifero getAbueloPaterno() {
-		if(this.padre.getPadre() != null) {
+		if (this.padre != null) {
 			return this.padre.getPadre();
 		}
 		return null;
 	}
 	
 	public Mamifero getAbuelaPaterna() {
-		if(this.padre.getMadre() != null) {
+		if (this.padre != null) {
 			return this.padre.getMadre();
 		}
 		return null;
 	}
 	
-	// este codigo esta bien, en el test no sale errores pero debo revisarlo
+	// Uso recursion para acceder a los ancestros
 	public Boolean tieneComoAncestroA(Mamifero unMamifero) {
 		boolean posee = false;
 		if (this.padre == unMamifero || this.madre == unMamifero) {

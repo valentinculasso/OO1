@@ -7,7 +7,7 @@ public class Gerente extends Empleado{
 	}
 	
 	public double aportes() {
-		return this.montoBasico() * 0.005d;
+		return this.montoBasico() * 0.05d;
 	}
 	
 	public double montoBasico() {

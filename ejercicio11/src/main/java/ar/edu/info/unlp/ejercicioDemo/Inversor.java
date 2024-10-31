@@ -13,11 +13,13 @@ public class Inversor{
 		this.inversiones = new ArrayList<Inversiones>();
 	}
 	
-	public void agregarinversion(Inversiones inversion) {
+	public void agregarInversion(Inversiones inversion) {
 		this.inversiones.add(inversion);
 	}
 	
-	public double sumaInversiones() {
+	public double valorActual() {
 		return this.inversiones.stream().mapToDouble(Inversiones -> Inversiones.valorActual()).sum();
 	}
+	
+	
 }
